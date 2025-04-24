@@ -1,0 +1,54 @@
+﻿@model IEnumerable<OnlineDentalClinic.Models.Appointment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="color: white;">Manage Appointments</h1>
+<p style="color: white;">Patients Details</p>
+
+<p>
+    <a asp-action="Create" style="color: white;"> +Create New</a>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr class="table-dark">
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.Patient)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.Treatment)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.AppDate)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.AppTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Treatment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppTime)
+            </td>
+            <td>
+                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pen"></i>Edit</a> |
+                    <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-list"></i>Details</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i>Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

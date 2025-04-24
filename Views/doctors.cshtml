@@ -1,0 +1,25 @@
+﻿ @model IEnumerable<OnlineDentalClinic.Models.Doctor> 
+
+@{
+    ViewData["Title"] = "Our Doctors";
+}
+
+<div class="container">
+    <h1 class="text-center my-4">Meet Our Experienced Doctors</h1>
+
+    <div class="row">
+        @foreach (var doctor in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="@doctor.ImageUrl" class="card-img-top" alt="Doctor Image" />
+                    <div class="card-body">
+                        <h5 class="card-title">@doctor.Name</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@doctor.Specialization</h6>
+                        <p class="card-text">@doctor.Description</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
