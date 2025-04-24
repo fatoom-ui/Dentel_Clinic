@@ -1,0 +1,49 @@
+﻿@model IEnumerable<OnlineDentalClinic.Models.Treatment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="color: white;">Manage Treatments</h1>
+<p style="color: white;">Patients Details</p>
+
+<p>
+    <a asp-action="Create" style="color: white;"> +Create New</a>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr class="table-dark">
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.Treatment_Name)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.Treatment_Cost)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.Treatment_Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Treatment_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Treatment_Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Treatment_Description)
+            </td>
+            <td>
+                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pen"></i>Edit</a> |
+                    <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-list"></i>Details</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i>Delete</a>
+            </td>
+        </tr>
+          
+}
+    </tbody>
+</table>

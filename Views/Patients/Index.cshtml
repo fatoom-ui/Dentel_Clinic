@@ -1,0 +1,184 @@
+﻿  @model IEnumerable<OnlineDentalClinic.Models.Patient>   
+
+ @{ 
+     ViewData["Title"] = "Index"; 
+ }
+
+<h1 style="color: white;">Manage Patients</h1>
+<p style="color: white;">Patients Details</p>
+
+
+ <p>
+    <a asp-action="Create" style="color: white;"> +Create New</a>
+</p> 
+ <table class="table table-hover"> 
+     <thead> 
+         <tr class="table-dark"> 
+             <th scope="row"> 
+                 @Html.DisplayNameFor(model => model.PatientName) 
+             </th> 
+             <th scope="row"> 
+                 @Html.DisplayNameFor(model => model.PatientPhone) 
+             </th> 
+             <th scope="row"> 
+                 @Html.DisplayNameFor(model => model.PatientAddress) 
+             </th> 
+             <th scope="row"> 
+                 @Html.DisplayNameFor(model => model.PatientD_O_B) 
+             </th> 
+             <th scope="row"> 
+                 @Html.DisplayNameFor(model => model.PatientGender) 
+             </th> 
+             <th scope="row"> 
+                 @Html.DisplayNameFor(model => model.PatientAllergies) 
+             </th> 
+             <th></th> 
+         </tr> 
+     </thead> 
+     <tbody> 
+ @foreach (var item in Model) { 
+         <tr> 
+             <td> 
+                 @Html.DisplayFor(modelItem => item.PatientName) 
+             </td> 
+             <td> 
+                 @Html.DisplayFor(modelItem => item.PatientPhone) 
+             </td> 
+             <td> 
+                 @Html.DisplayFor(modelItem => item.PatientAddress) 
+             </td> 
+             <td> 
+                 @Html.DisplayFor(modelItem => item.PatientD_O_B) 
+             </td> 
+             <td> 
+                 @Html.DisplayFor(modelItem => item.PatientGender) 
+             </td> 
+             <td> 
+                 @Html.DisplayFor(modelItem => item.PatientAllergies) 
+             </td> 
+             <td>
+                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.PatientId"><i class="bi bi-pen"></i>Edit</a> |
+                    <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.PatientId"><i class="bi bi-list"></i>Details</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.PatientId"><i class="bi bi-trash"></i>Delete</a>
+             </td> 
+         </tr> 
+ } 
+     </tbody> 
+ </table> 
+@* ////////////////////////////////////////////////////////////////////////////////////////////////// *@
+
+@* //////////////////////////////////////////////////////////////////////////////////////////////////// *@
+
+@* @model Tuple<OnlineDentalClinic.Models.Patient, IEnumerable<OnlineDentalClinic.Models.Patient>> *@
+
+@* @{ *@
+@*     ViewData["Title"] = "Patient Management"; *@
+@* } *@
+
+@* <h1>Patient Management</h1> *@
+
+@* <div class="row"> *@
+@*     <!-- Form Section --> *@
+@*     <div class="col-md-4"> *@
+@*         <h4>Create New Patient</h4> *@
+@*         <form asp-action="Create"> *@
+@*             <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="Item1.PatientName" class="control-label"></label> *@
+@*                 <input asp-for="Item1.PatientName" class="form-control" /> *@
+@*                 <span asp-validation-for="Item1.PatientName" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="Item1.PatientPhone" class="control-label"></label> *@
+@*                 <input asp-for="Item1.PatientPhone" class="form-control" /> *@
+@*                 <span asp-validation-for="Item1.PatientPhone" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="Item1.PatientAddress" class="control-label"></label> *@
+@*                 <input asp-for="Item1.PatientAddress" class="form-control" /> *@
+@*                 <span asp-validation-for="Item1.PatientAddress" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="Item1.PatientD_O_B" class="control-label"></label> *@
+@*                 <input asp-for="Item1.PatientD_O_B" class="form-control" /> *@
+@*                 <span asp-validation-for="Item1.PatientD_O_B" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="Item1.PatientGender" class="control-label"></label> *@
+@*                 <input asp-for="Item1.PatientGender" class="form-control" /> *@
+@*                 <span asp-validation-for="Item1.PatientGender" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="Item1.PatientAllergies" class="control-label"></label> *@
+@*                 <input asp-for="Item1.PatientAllergies" class="form-control" /> *@
+@*                 <span asp-validation-for="Item1.PatientAllergies" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <input asp-action="index" type="submit" value="Create" class="btn btn-primary" /> *@
+@*             </div> *@
+@*         </form> *@
+@*     </div> *@
+
+@*     <!-- Table Section --> *@
+@*     <div class="col-md-8"> *@
+@*         <h4>Patient List</h4> *@
+@*         <table class="table table-hover"> *@
+@*             <thead> *@
+@*                 <tr class="table-dark"> *@
+@*                     <th>@Html.DisplayNameFor(model => model.Item2.First().PatientName)</th> *@
+@*                     <th>@Html.DisplayNameFor(model => model.Item2.First().PatientPhone)</th> *@
+@*                     <th>@Html.DisplayNameFor(model => model.Item2.First().PatientAddress)</th> *@
+@*                     <th>@Html.DisplayNameFor(model => model.Item2.First().PatientD_O_B)</th> *@
+@*                     <th>@Html.DisplayNameFor(model => model.Item2.First().PatientGender)</th> *@
+@*                     <th>@Html.DisplayNameFor(model => model.Item2.First().PatientAllergies)</th> *@
+@*                     <th>Actions</th> *@
+@*                 </tr> *@
+@*             </thead> *@
+@*             <tbody> *@
+@*                 @foreach (var item in Model.Item2) *@
+@*                 { *@
+@*                     <tr> *@
+@*                         <td>@Html.DisplayFor(modelItem => item.PatientName)</td> *@
+@*                         <td>@Html.DisplayFor(modelItem => item.PatientPhone)</td> *@
+@*                         <td>@Html.DisplayFor(modelItem => item.PatientAddress)</td> *@
+@*                         <td>@Html.DisplayFor(modelItem => item.PatientD_O_B)</td> *@
+@*                         <td>@Html.DisplayFor(modelItem => item.PatientGender)</td> *@
+@*                         <td>@Html.DisplayFor(modelItem => item.PatientAllergies)</td> *@
+@*                         <td> *@
+@*                             <a asp-action="Edit" asp-route-id="@item.PatientId">Edit</a> | *@
+@*                             <a asp-action="Details" asp-route-id="@item.PatientId">Details</a> | *@
+@*                             <a asp-action="Delete" asp-route-id="@item.PatientId">Delete</a> *@
+@*                         </td> *@
+@*                     </tr> *@
+@*                 } *@
+@*             </tbody> *@
+@*         </table> *@
+@*     </div> *@
+@* </div> *@
+
+@* @section Scripts { *@
+@*     @{ *@
+@*         await Html.RenderPartialAsync("_ValidationScriptsPartial"); *@
+@*     } *@
+@* } *@
+
+
+
+               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
